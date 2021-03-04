@@ -10,7 +10,7 @@
 <body>
 <div id="navbar">
     {% if user.is_authenticated %}
-        <a id="logout">خروج</a>
+        <a id="logout" href="{% url 'main_page' %}">خروج</a>
     {% else %}
         <a id="login" href="{% url 'login_page' %}">ورود</a>
     {% endif %}

@@ -9,7 +9,7 @@
     {% endif %}
 
 
-    <form method="post" action="{% url 'login_page' %}" id=" login_form">
+    <form method="post" action="{% url 'login_page' %}" id="login_form">
         {% csrf_token %}
         username:
         <input name="username">
