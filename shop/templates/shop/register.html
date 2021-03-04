@@ -1,25 +1,25 @@
 {% extends 'shop/base.html' %}
 {% block content %}
+    <form action="{% url 'register_page' %}" method="post" id=”register_form”>
     {% csrf_token %}
-    <form method="post" action="{% url 'register_page' %}" id=”register_form”>
         first_name:
-        <input name=”first_name”>
+        <input name=first_name>
         <br>
         last_name:
-        <input name=”last_name”>
+        <input name=last_name>
         <br>
         username:
-        <input name=”username”>
+        <input name=username>
         <br>
         email:
-        <input name=”email”>
+        <input name=email>
         <br>
         password1:
-        <input name=”password1”>
+        <input name=password1>
         <br>
         password2:
-        <input name=”password2”>
+        <input name=password2>
         <br>
-        <button name=”submit"></button>
-    </form>
+        <button name=”submit></button>
+        </form>
 {% endblock %}

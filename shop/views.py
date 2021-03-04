@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 
@@ -24,4 +25,5 @@ def register_page(request):
                                         last_name=last_name
                                         )
         user.save()
+        return HttpResponseRedirect('/register_page')
     return render(request, 'shop/register.html')
