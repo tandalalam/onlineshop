@@ -4,4 +4,4 @@ from django.shortcuts import render
 
 
 def main_page(request):
-    return render(request=request, template_name='shop/mainpage.html')
+    return render(request, 'shop/main_page.html')
