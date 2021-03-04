@@ -1,0 +1,22 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+
+    {% if errors %}
+        <div id="errors">
+            {{ errors }}
+        </div>
+        <br>
+    {% endif %}
+
+
+    <form method="post" action="{% url 'login_page' %}" id=" login_form">
+        {% csrf_token %}
+        username:
+        <input name="username">
+        <br>
+        password:
+        <input name="password">
+        <br>
+        <button name="submit"></button>
+    </form>
+{% endblock %}

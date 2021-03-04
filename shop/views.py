@@ -1,3 +1,4 @@
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -27,3 +28,16 @@ def register_page(request):
         user.save()
         return HttpResponseRedirect('/register_page')
     return render(request, 'shop/register.html')
+
+
+def login_page(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        if user is None:
+            return render(context={"errors": "no user found"}, request=request, template_name='shop/login.html')
+        else:
+            login(request, user)
+            return render(request, 'shop/main_page.html')
+    return render(request, 'shop/login.html')
