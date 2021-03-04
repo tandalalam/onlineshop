@@ -9,10 +9,7 @@ from django.shortcuts import render
 
 def main_page(request):
     if request.method == 'POST':
-        print("hi")
-        if request.POST.get("is_logout") == 'true':
-            print("ohoohho")
-            logout(request)
+        logout(request)
     return render(request, 'shop/main_page.html')
 
 
