@@ -5,6 +5,7 @@ from django.shortcuts import render
 
 
 # Create your views here.
+from django.urls import reverse
 
 
 def main_page(request):
@@ -49,5 +50,5 @@ def login_page(request):
             return render(context={"errors": "no user found"}, request=request, template_name='shop/login.html')
         else:
             login(request, user)
-            return render(request, 'shop/main_page.html')
+            return HttpResponseRedirect(reverse('main_page'))
     return render(request, 'shop/login.html')
