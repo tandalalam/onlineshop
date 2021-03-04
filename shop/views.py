@@ -14,6 +14,11 @@ def main_page(request):
     return render(request, 'shop/main_page.html')
 
 
+def log_out(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('main_page'))
+
+
 def register_page(request):
     if request.method == 'POST':
         username = request.POST.get('username')

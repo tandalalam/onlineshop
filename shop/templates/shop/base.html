@@ -10,11 +10,7 @@
 <body>
 <div id="navbar">
     {% if user.is_authenticated %}
-        <form action="{% url 'main_page' %}" method="post">
-        {% csrf_token %}
-            <input type="hidden" name="is_logout" value="true">
-            <a id="logout" onclick="this.parentNode.submit()" href="#">خروج</a>
-        </form>
+        <a id="logout" href="{% url 'logout_page' %}">خروج</a>
     {% else %}
         <a id="login" href="{% url 'login_page' %}">ورود</a>
     {% endif %}
