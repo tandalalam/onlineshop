@@ -1,6 +1,6 @@
 {% extends 'shop/base.html' %}
 {% block content %}
-    <form action="{% url 'register_page' %}" method="post" id=”register_form”>
+    <form action="{% url 'register_page' %}" method="post" id="register_form">
     {% csrf_token %}
         first_name:
         <input name="first_name">
