@@ -19,6 +19,13 @@ def register_page(request):
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
         email = request.POST.get('email')
+        users = User.objects.filter(username=username)
+        if len(users) != 0:
+            return render(context={"errors": "نام کاربری شما در سیستم موجود است"}, request=request,
+                          template_name='shop/register.html')
+        if password1 != password2:
+            return render(context={"errors": "گذرواژه و تکرار گذرواژه یکسان نیستند"}, request=request,
+                          template_name='shop/register.html')
         user = User.objects.create_user(username=username,
                                         email=email,
                                         password=password1,
@@ -35,6 +42,7 @@ def login_page(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(username=username, password=password)
+
         if user is None:
             return render(context={"errors": "no user found"}, request=request, template_name='shop/login.html')
         else:

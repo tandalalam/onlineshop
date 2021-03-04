@@ -1,5 +1,12 @@
 {% extends 'shop/base.html' %}
 {% block content %}
+    {% if errors %}
+        <div id="errors">
+            {{ errors }}
+        </div>
+        <br>
+    {% endif %}
+
     <form action="{% url 'register_page' %}" method="post" id="register_form">
         {% csrf_token %}
         first_name:
