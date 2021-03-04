@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -8,6 +8,11 @@ from django.shortcuts import render
 
 
 def main_page(request):
+    if request.method == 'POST':
+        print("hi")
+        if request.POST.get("is_logout") == 'true':
+            print("ohoohho")
+            logout(request)
     return render(request, 'shop/main_page.html')
 
 
